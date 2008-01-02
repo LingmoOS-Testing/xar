@@ -1,0 +1,56 @@
+Source: xar
+Section: utils
+Priority: optional
+Maintainer: Christoph Berg <myon@debian.org>
+Build-Depends: debhelper (>> 5), libxml2-dev, libssl-dev, chrpath
+Standards-Version: 3.7.3
+XS-Vcs-Browser: http://hg.df7cb.de/hg/xar
+XS-Vcs-Hg: http://hg.df7cb.de/hg/xar
+Homepage: http://code.google.com/p/xar/
+
+Package: xar
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: eXtensible ARchiver
+ The XAR project aims to provide an easily extensible archive format. Important
+ design decisions include an easily extensible XML table of contents for random
+ access to archived files, storing the toc at the beginning of the archive to
+ allow for efficient handling of streamed archives, the ability to handle files
+ of arbitrarily large sizes, the ability to choose independent encodings for
+ individual files in the archive, the ability to store checksums for individual
+ files in both compressed and uncompressed form, and the ability to query the
+ table of content's rich meta-data.
+ .
+ This package contains the xar binary.
+
+Package: libxar1
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: eXtensible ARchiver (library)
+ The XAR project aims to provide an easily extensible archive format. Important
+ design decisions include an easily extensible XML table of contents for random
+ access to archived files, storing the toc at the beginning of the archive to
+ allow for efficient handling of streamed archives, the ability to handle files
+ of arbitrarily large sizes, the ability to choose independent encodings for
+ individual files in the archive, the ability to store checksums for individual
+ files in both compressed and uncompressed form, and the ability to query the
+ table of content's rich meta-data.
+ .
+ This package contains the libxar library.
+
+# The development package is called libxar*1*-dev as there is already a
+# libxar-dev package (in non-free, though)
+Package: libxar1-dev
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, libxar1 (= ${binary:Version})
+Description: eXtensible ARchiver (development files)
+ The XAR project aims to provide an easily extensible archive format. Important
+ design decisions include an easily extensible XML table of contents for random
+ access to archived files, storing the toc at the beginning of the archive to
+ allow for efficient handling of streamed archives, the ability to handle files
+ of arbitrarily large sizes, the ability to choose independent encodings for
+ individual files in the archive, the ability to store checksums for individual
+ files in both compressed and uncompressed form, and the ability to query the
+ table of content's rich meta-data.
+ .
+ This package contains the libxar headers.

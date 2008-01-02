@@ -1,0 +1,11 @@
+xar (1.5.2-1) unstable; urgency=low
+
+  * New upstream version, now also builds static libraries.
+
+ -- Christoph Berg <myon@debian.org>  Wed, 02 Jan 2008 22:20:14 +0100
+
+xar (1.5.1-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Christoph Berg <myon@debian.org>  Sat, 07 Jul 2007 21:40:55 +0200

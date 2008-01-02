@@ -1,0 +1,42 @@
+#!/usr/bin/make -f
+
+build-indep:
+build build-arch: build-stamp
+build-stamp:
+	./configure --prefix=/usr --mandir=/usr/share/man
+	$(MAKE)
+	chrpath -d src/ixar
+	touch $@
+
+install: build-stamp
+	dh_testroot
+	dh_clean -k
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp
+	dh_movefiles
+	# check for leftovers
+	[ ! "`find debian/tmp -type f`" ]
+
+binary-indep:
+binary binary-arch: install
+	dh_installdocs -plibxar1
+	dh_installchangelogs -plibxar1
+	# copyright and changelog are in the libxar1 package
+	dh_link
+	dh_fixperms
+	dh_compress
+	dh_strip
+	dh_md5sums
+	dh_makeshlibs
+	# debian/shlibs.local has a strict dependency on libxar1 for xar as we
+	# need that for the copyright file
+	dh_shlibdeps
+	dh_gencontrol
+	dh_installdeb
+	dh_builddeb
+
+clean:
+	[ ! -f Makefile ] || $(MAKE) distclean
+	rm -rf lib/.libs
+	dh_clean build-stamp
+
+.PHONY: build build-arch build-indep install binary binary-arch binary-indep clean
