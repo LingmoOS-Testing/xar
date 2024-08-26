@@ -7736,9 +7736,9 @@ fi
 done
 
 
-echo "$as_me:$LINENO: checking for OpenSSL_add_all_ciphers in -lcrypto" >&5
-echo $ECHO_N "checking for OpenSSL_add_all_ciphers in -lcrypto... $ECHO_C" >&6
-if test "${ac_cv_lib_crypto_OpenSSL_add_all_ciphers+set}" = set; then
+echo "$as_me:$LINENO: checking for OPENSSL_init_crypto in -lcrypto" >&5
+echo $ECHO_N "checking for OPENSSL_init_crypto in -lcrypto... $ECHO_C" >&6
+if test "${ac_cv_lib_crypto_OPENSSL_init_crypto+set}" = set; then
   echo $ECHO_N "(cached) $ECHO_C" >&6
 else
   ac_check_lib_save_LIBS=$LIBS
@@ -7756,11 +7756,11 @@ extern "C"
 #endif
 /* We use char because int might match the return type of a gcc2
    builtin and then its argument prototype would still apply.  */
-char OpenSSL_add_all_ciphers ();
+char OPENSSL_init_crypto ();
 int
 main ()
 {
-OpenSSL_add_all_ciphers ();
+OPENSSL_init_crypto ();
   ;
   return 0;
 }
@@ -7787,20 +7787,20 @@ if { (eval echo "$as_me:$LINENO: \"$ac_link\"") >&5
   ac_status=$?
   echo "$as_me:$LINENO: \$? = $ac_status" >&5
   (exit $ac_status); }; }; then
-  ac_cv_lib_crypto_OpenSSL_add_all_ciphers=yes
+  ac_cv_lib_crypto_OPENSSL_init_crypto=yes
 else
   echo "$as_me: failed program was:" >&5
 sed 's/^/| /' conftest.$ac_ext >&5
 
-ac_cv_lib_crypto_OpenSSL_add_all_ciphers=no
+ac_cv_lib_crypto_OPENSSL_init_crypto=no
 fi
 rm -f conftest.err conftest.$ac_objext \
       conftest$ac_exeext conftest.$ac_ext
 LIBS=$ac_check_lib_save_LIBS
 fi
-echo "$as_me:$LINENO: result: $ac_cv_lib_crypto_OpenSSL_add_all_ciphers" >&5
-echo "${ECHO_T}$ac_cv_lib_crypto_OpenSSL_add_all_ciphers" >&6
-if test $ac_cv_lib_crypto_OpenSSL_add_all_ciphers = yes; then
+echo "$as_me:$LINENO: result: $ac_cv_lib_crypto_OPENSSL_init_crypto" >&5
+echo "${ECHO_T}$ac_cv_lib_crypto_OPENSSL_init_crypto" >&6
+if test $ac_cv_lib_crypto_OPENSSL_init_crypto = yes; then
   cat >>confdefs.h <<_ACEOF
 #define HAVE_LIBCRYPTO 1
 _ACEOF
